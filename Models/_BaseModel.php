@@ -1,6 +1,7 @@
 <?php
 namespace App\Models;
 
+#[\AllowDynamicProperties]
 class BaseModel {
 
     protected $table;
@@ -16,7 +17,6 @@ class BaseModel {
     }
 
     public function __construct() {
-
         if(!isset($this->table)) {
             $single = strtolower( $this->getClassName(get_called_class()));
             switch(substr($single, -1)) {
@@ -38,6 +38,7 @@ class BaseModel {
         }
         if(!isset($this->db)) {
             global $db;
+            
             $this->db = $db;
         }
     }
@@ -98,6 +99,11 @@ class BaseModel {
     }
 
     private function getClassName($classname) {
+        if(strpos($classname, '\\') === false) {
+            //not in a namespace
+            return $classname;
+        }
+        //in a namespace
         return (substr($classname, strrpos($classname, '\\') + 1));
     }
     
