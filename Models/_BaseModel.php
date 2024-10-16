@@ -106,6 +106,9 @@ class BaseModel {
         //in a namespace
         return (substr($classname, strrpos($classname, '\\') + 1));
     }
-    
+    private function redirect($url, $code = 302) {
+        header("Location: " . $url, true, $code);
+        exit();
+    }
 
 }

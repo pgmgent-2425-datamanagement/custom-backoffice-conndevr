@@ -16,6 +16,13 @@
         <a href="/">Books</a>
         <a href="/categories">Categories</a>
     </nav>
+    <div>
+        <form action="">
+
+        <input type="text" name="search" placeholder="Zoeken" value="<?= $search ?>">
+        <input type="submit" value="zoeken">
+        </form>
+    </div>
 
     <main>
         <?= $content ?? 'Geen inhoud beschikbaar.'; ?>

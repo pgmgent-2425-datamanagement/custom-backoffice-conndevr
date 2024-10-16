@@ -1,5 +1,6 @@
 
 
+<a href="/add">Add a book</a>
 
 <ul>
     <?php

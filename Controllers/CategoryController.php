@@ -5,14 +5,17 @@ use App\Models\Category;
 
 class CategoryController extends BaseController {
 
-    public function index() {
+    public static function index() {
+
+        $search = $_GET['search'] ?? '';
         // Zorg ervoor dat viewPath correct is ingesteld
-        $categories = Category::all();
+        $categories = Category::search($search);
 
         // Laad de view voor klanten
         self::loadView('/category/categoryPage', [
-            'title' => 'Customers Page',
-            'categories' => $categories
+            'title' => 'Category Page',
+            'categories' => $categories,
+            'search' => $search
         ]);
     }
 
