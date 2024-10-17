@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="/css/main.css?v=<?php if ($_ENV['DEV_MODE'] == "true") { echo time(); } ?>">
 </head>
 <body>
-    <div class="brand">BrandName</div>
+    <div class="brand">BookiBook</div>
 
     <nav>
         <a href="/">Books</a>
@@ -29,7 +29,7 @@
     </main>
     
     <footer>
-        &copy; <?= date('Y'); ?> - BrandName
+        &copy; <?= date('Y'); ?> - BookiBook
     </footer>
 </body>
 </html>
