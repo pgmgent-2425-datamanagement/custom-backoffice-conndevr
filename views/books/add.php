@@ -1,23 +1,30 @@
-<form method="POST">
-    <label for="">
-        Title
-    <input type="text" name="title" placeholder="Zoekterm">
-    </label>
-    <label for="">
-        Description
-        <textarea name="description" rows="6"></textarea>
-    </label>
-    <label for="">
-        Author
-        <input type="text" name="author" placeholder="Zoekterm">
-        </label>
-    <label for="">
-        Publication_date
-        <input type="date" name="publication_date" placeholder="Zoekterm">
-    </label>
-    <label for="">
-        Price
-        <input type="text" name="price" placeholder="Zoekterm">
-    </label>
-    <input type="submit" value="Opslaan">
+<form method="POST" class="max-w-lg mx-auto bg-white shadow-md rounded-lg p-6">
+    <h1 class="text-2xl font-bold text-center mb-6">Book Information</h1>
+
+    <div class="mb-4">
+        <label for="title" class="block text-sm font-semibold text-gray-700">Title</label>
+        <input type="text" name="title" placeholder="Enter book title" class="mt-1 block w-full border border-gray-300 rounded-md p-2 focus:ring focus:ring-blue-300" required>
+    </div>
+
+    <div class="mb-4">
+        <label for="description" class="block text-sm font-semibold text-gray-700">Description</label>
+        <textarea name="description" rows="6" class="mt-1 block w-full border border-gray-300 rounded-md p-2 focus:ring focus:ring-blue-300" required placeholder="Enter book description"></textarea>
+    </div>
+
+    <div class="mb-4">
+        <label for="author" class="block text-sm font-semibold text-gray-700">Author</label>
+        <input type="text" name="author" placeholder="Enter author's name" class="mt-1 block w-full border border-gray-300 rounded-md p-2 focus:ring focus:ring-blue-300" required>
+    </div>
+
+    <div class="mb-4">
+        <label for="publication_date" class="block text-sm font-semibold text-gray-700">Publication Date</label>
+        <input type="date" name="publication_date" class="mt-1 block w-full border border-gray-300 rounded-md p-2 focus:ring focus:ring-blue-300" required>
+    </div>
+
+    <div class="mb-4">
+        <label for="price" class="block text-sm font-semibold text-gray-700">Price</label>
+        <input type="text" name="price" placeholder="Enter book price" class="mt-1 block w-full border border-gray-300 rounded-md p-2 focus:ring focus:ring-blue-300" required>
+    </div>
+
+    <button type="submit" class="w-full bg-blue-500 text-white font-semibold py-2 rounded-md hover:bg-blue-600 focus:outline-none focus:ring focus:ring-blue-300">Opslaan</button>
 </form>

@@ -12,3 +12,8 @@ $router->post('/update/(\d+)', 'BooksController@update');
 $router->post('/delete/(\d+)', 'BooksController@delete');
 
 $router->get('/categories', 'CategoryController@index');
+$router->get('/categories/add', 'CategoryController@add');
+$router->post('/categories/add', 'CategoryController@save');
+$router->get('/category/edit/(\d+)', 'CategoryController@edit');
+$router->post('/category/update/(\d+)', 'CategoryController@update');
+$router->post('/category/delete/(\d+)', 'CategoryController@delete');
