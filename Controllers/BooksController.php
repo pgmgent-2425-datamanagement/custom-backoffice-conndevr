@@ -2,6 +2,7 @@
 
 namespace App\Controllers;
 use App\Models\Book;
+use App\Models\Category;
 
 class BooksController extends BaseController {
 
@@ -19,22 +20,38 @@ class BooksController extends BaseController {
     }
     public static function add() {
         $search = $_GET['search'] ?? '';
+        $categories = Category::all();
 
         self::loadView('books/add', [
-            'search' => $search
+            'search' => $search,
+            'categories' =>$categories
 
         ]);
     }
     
     public static function save() {
 
-        $book = new Book();
+      
+        $imgName = $_FILES['image_path']['name'];
+        $tmp = $_FILES['image_path']['tmp_name'];
+        $to_folder = BASE_DIR . '/public/images/';
 
+
+       $uuid = uniqid() . '-' . $imgName;
+
+        move_uploaded_file($tmp,  $to_folder . $uuid );
+
+        $book = new Book();
+        
+       
         $book->title = $_POST['title'];
         $book->description = $_POST['description'];
         $book->author = $_POST['author'];
         $book->publication_date = $_POST['publication_date'];
         $book->price = $_POST['price'];
+        $book->image_path = $uuid;
+       
+        $book->category_id = $_POST['category_id'];
 
         $succes = $book->save();
 
@@ -47,6 +64,7 @@ class BooksController extends BaseController {
 
     public static function edit($id) {
         $book = Book::find($id);
+        $categories = Category::all();
         
         if (!$book) {
             echo "Boek niet gevonden";
@@ -55,24 +73,41 @@ class BooksController extends BaseController {
 
         self::loadView('/books/edit', [
             'title' => 'Edit Book',
-            'book' => $book
+            'book' => $book,
+            'categories' => $categories
         ]);
     }
 
     public static function update($id) {
-        $book = Book::find($id);  // Zorg ervoor dat deze methode een array retourneert
+        $book = Book::find($id);  
       
         if (!$book) {
             echo "Boek niet gevonden";
             return;
         }
+
+        
+        if (isset($_FILES['image_path'])) {
+
+            $imgName = $_FILES['image_path']['name'];
+            $tmp = $_FILES['image_path']['tmp_name'];
+            $to_folder = BASE_DIR . '/public/images/';
     
-        // Werk de waarden bij in de array
+            $uuid = uniqid() . '-' . $imgName;
+    
+            move_uploaded_file($tmp, $to_folder . $uuid);
+    
+            $book->image_path = $uuid;
+        }
+
+       
+    
         $book->title = $_POST['title'];
         $book->description = $_POST['description'];
         $book->author = $_POST['author'];
         $book->publication_date = $_POST['publication_date'];
         $book->price = $_POST['price'];
+        $book->category_id = $_POST['category_id'];
     
         $succes = $book->edit();
         if ($succes) {
@@ -94,6 +129,14 @@ class BooksController extends BaseController {
         
         parent::redirect('/');
         exit();
+    }
+
+    public static function list() {
+        $list = scandir(BASE_DIR . '/public/images/');
+        self::loadView('books/list', [
+                'list' => $list
+        ]);
+
     }
 }
 

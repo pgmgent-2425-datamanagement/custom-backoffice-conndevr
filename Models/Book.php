@@ -7,12 +7,22 @@ use PDO;
 
 class Book extends BaseModel
 {
+    public int $id;
+    public int $category_id;
+    public string $title;
+    public string $description;
+    public string $author;
+    public string $publication_date;
+    public string $price;
+    public string $image_path; 
 
     protected function search($search)
     {
-        $sql = 'SELECT * FROM `' . $this->table . '`
-    WHERE title LIKE :search OR description LIKE :search
-    ';
+        $sql = 'SELECT books.*, categories.name AS category FROM db.books
+        INNER JOIN categories ON books.category_id = categories.id
+        
+            WHERE title LIKE :search OR description LIKE :search
+        ';
         $pdo_statement = $this->db->prepare($sql);
         $pdo_statement->execute([
             ':search' => '%' . $search . '%'
@@ -22,39 +32,46 @@ class Book extends BaseModel
 
         return self::castToModel($db_items);
     }
-    public int $id;
-    public string $title;
-    public string $description;
-    public string $author;
-    public string $publication_date;
-    public string $price;
 
     public function save()
     {
-        $sql = "INSERT INTO `books` (`title`, `description`, `author`, `publication_date`, `price`) VALUES (:title, :description, :author, :publication_date, :price)";
+        $sql = "INSERT INTO `books` (`title`, `description`, `author`, `publication_date`, `price`, `image_path`, `category_id`) 
+                VALUES (:title, :description, :author, :publication_date, :price, :image_path, :category_id)";
 
         $pdo_statement = $this->db->prepare($sql);
         $succes = $pdo_statement->execute([
             ':title' => $this->title,
             ':description' => $this->description,
+            ':category_id' => $this->category_id,
             ':author' => $this->author,
             ':publication_date' => $this->publication_date,
-            ':price' => $this->price
+            ':price' => $this->price,
+            ':image_path' => $this->image_path, // Voeg image_path toe aan de waarden
         ]);
         return $succes;
     }
 
     public function edit()
     {
-        $sql = "UPDATE `books` SET `title` = :title, `description` = :description, `author` = :author, `publication_date` = :publication_date, `price` = :price WHERE `id` = :id";
+        $sql = "UPDATE `books` SET 
+                    `title` = :title, 
+                    `description` = :description, 
+                    `category_id` = :category_id, 
+                    `author` = :author, 
+                    `publication_date` = :publication_date, 
+                    `price` = :price, 
+                    `image_path` = :image_path 
+                WHERE `id` = :id";
 
         $pdo_statement = $this->db->prepare($sql);
         $succes = $pdo_statement->execute([
             ':title' => $this->title,
             ':description' => $this->description,
+            ':category_id' => $this->category_id,
             ':author' => $this->author,
             ':publication_date' => $this->publication_date,
             ':price' => $this->price,
+            ':image_path' => $this->image_path,
             ':id' => $this->id
         ]);
 

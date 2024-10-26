@@ -10,6 +10,22 @@
         <textarea name="description" id="description" class="mt-1 block w-full border border-gray-300 rounded-md p-2 focus:ring focus:ring-blue-300" required><?= $book->description ?></textarea>
     </div>
 
+   
+
+    <select name="category_id" id="" class="mt-1 block w-full border border-gray-300 rounded-md p-2 focus:ring focus:ring-blue-300">
+    <?php
+        foreach( $categories as $item ){
+                  include __DIR__ . '/categoryOption.php';
+
+        }
+    ?>
+    </select>
+
+    <div class="mb-4">
+        <label for="image_path" class="block text-sm font-semibold text-gray-700">Upload Book Image</label>
+        <input type="file" name="image_path" accept="image/*" value="<?= $book->image_path ?>" class="mt-1 block w-full text-sm text-gray-600 border border-gray-300 rounded-md p-2 focus:ring focus:ring-blue-300">
+    </div>
+
     <div class="mb-4">
         <label for="author" class="block text-sm font-semibold text-gray-700">Author</label>
         <input type="text" name="author" id="author" value="<?= $book->author ?>" class="mt-1 block w-full border border-gray-300 rounded-md p-2 focus:ring focus:ring-blue-300" required>

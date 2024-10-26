@@ -1,0 +1,1 @@
+<option value={id}><?= $book->category_id ?></option>
