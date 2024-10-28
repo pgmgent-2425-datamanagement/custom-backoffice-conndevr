@@ -18,4 +18,4 @@ $router->get('/category/edit/(\d+)', 'CategoryController@edit');
 $router->post('/category/update/(\d+)', 'CategoryController@update');
 $router->post('/category/delete/(\d+)', 'CategoryController@delete');
 
-$router->get('/filemanager', 'BooksController@list');
+$router->get('/filemanager', 'BooksController@file');

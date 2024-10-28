@@ -131,10 +131,10 @@ class BooksController extends BaseController {
         exit();
     }
 
-    public static function list() {
-        $list = scandir(BASE_DIR . '/public/images/');
-        self::loadView('books/list', [
-                'list' => $list
+    public static function file() {
+        $file = scandir(BASE_DIR . '/public/images/');
+        self::loadView('books/filemanager', [
+                'file' => $file
         ]);
 
     }

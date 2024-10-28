@@ -17,6 +17,7 @@
                 <ul class="flex justify-center space-x-4">
                     <li><a href="/" class="text-blue-500 hover:underline">Books</a></li>
                     <li><a href="/categories" class="text-blue-500 hover:underline">Categories</a></li>
+                    <li><a href="/filemanager" class="text-blue-500 hover:underline">Filemanager</a></li>
                 </ul>
             </nav>
         </div>
