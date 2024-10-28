@@ -14,7 +14,7 @@ class Book extends BaseModel
     public string $author;
     public string $publication_date;
     public string $price;
-    public string $image_path; 
+    public string $image_path;
 
     protected function search($search)
     {
@@ -102,4 +102,24 @@ class Book extends BaseModel
 
         return $success;
     }
+
+    public function getBooksPerCategory()
+    {
+        // Haal categorieën en het aantal boeken per categorie op
+        $sql = 'SELECT categories.id, categories.name AS category_name, COUNT(books.id) AS book_count 
+                FROM categories 
+                LEFT JOIN books ON categories.id = books.category_id 
+                GROUP BY categories.id'; // Groeperen op categorie ID
+    
+        $stmt = $this->db->prepare($sql);
+        $stmt->execute();
+    
+        // Haal de resultaten op als objecten
+        $categories = $stmt->fetchAll(PDO::FETCH_OBJ);
+    
+        return $categories;
+    }
+    
+    
+    
 }

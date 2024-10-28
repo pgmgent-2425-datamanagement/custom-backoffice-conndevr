@@ -2,11 +2,10 @@
 
 //$router->get('/', function() { echo 'Dit is de index vanuit de route'; });
 $router->setNamespace('App\Controllers');
-$router->get('/', 'BooksController@index');
 
+$router->get('/', 'BooksController@index');
 $router->get('/add', 'BooksController@add');
 $router->post('/add', 'BooksController@save');
-
 $router->get('/edit/(\d+)', 'BooksController@edit');
 $router->post('/update/(\d+)', 'BooksController@update');
 $router->post('/delete/(\d+)', 'BooksController@delete');
@@ -19,3 +18,7 @@ $router->post('/category/update/(\d+)', 'CategoryController@update');
 $router->post('/category/delete/(\d+)', 'CategoryController@delete');
 
 $router->get('/filemanager', 'BooksController@file');
+
+$router->get('/api/get_books', 'BookController@get_books');
+
+$router->get('/stats', 'BooksController@stats');
