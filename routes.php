@@ -19,6 +19,6 @@ $router->post('/category/delete/(\d+)', 'CategoryController@delete');
 
 $router->get('/filemanager', 'BooksController@file');
 
-$router->get('/api/get_books', 'BookController@get_books');
+$router->get('/api/get_books', 'BooksController@get_books');
 
 $router->get('/stats', 'BooksController@stats');
