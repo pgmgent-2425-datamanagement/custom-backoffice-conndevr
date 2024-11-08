@@ -123,6 +123,9 @@ class BooksController extends BaseController
             echo "Error bij het updaten van het boek";
         }
     }
+
+
+    
     public function delete($id)
     {
         $book = Book::find($id);
@@ -160,13 +163,10 @@ class BooksController extends BaseController
 
     public static function stats()
     {
-        // Maak een nieuwe instantie van de Book klasse
         $bookInstance = new Book();
         
-        // Haal categorieën op met het aantal boeken per categorie
         $categories = $bookInstance->getBooksPerCategory();
         
-        // Haal ook de boeken op
         $books = Book::all(); // Zorg ervoor dat deze methode alle boeken ophaalt.
         
         // Laad de view met de categorieën en het aantal boeken
