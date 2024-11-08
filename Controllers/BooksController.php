@@ -87,35 +87,32 @@ class BooksController extends BaseController
     public static function update($id)
     {
         $book = Book::find($id);
-
+    
         if (!$book) {
             echo "Boek niet gevonden";
             return;
         }
-
-
-        if (isset($_FILES['image_path'])) {
-
+    
+        if (isset($_FILES['image_path']) && $_FILES['image_path']['error'] === UPLOAD_ERR_OK) {
+    
             $imgName = $_FILES['image_path']['name'];
             $tmp = $_FILES['image_path']['tmp_name'];
             $to_folder = BASE_DIR . '/public/images/';
-
+    
             $uuid = uniqid() . '-' . $imgName;
-
+    
             move_uploaded_file($tmp, $to_folder . $uuid);
-
+    
             $book->image_path = $uuid;
         }
-
-
-
+    
         $book->title = $_POST['title'];
         $book->description = $_POST['description'];
         $book->author = $_POST['author'];
         $book->publication_date = $_POST['publication_date'];
         $book->price = $_POST['price'];
         $book->category_id = $_POST['category_id'];
-
+    
         $succes = $book->edit();
         if ($succes) {
             parent::redirect('/');
@@ -123,7 +120,7 @@ class BooksController extends BaseController
             echo "Error bij het updaten van het boek";
         }
     }
-
+    
 
     
     public function delete($id)
