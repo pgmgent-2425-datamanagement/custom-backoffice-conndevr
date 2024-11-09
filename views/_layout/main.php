@@ -15,10 +15,10 @@
             <div class="brand text-3xl font-bold text-center">BookiBook</div>
             <nav class="mt-4">
                 <ul class="flex justify-center space-x-4">
-                    <li><a href="/" class="text-blue-500 hover:underline">Books</a></li>
-                    <li><a href="/categories" class="text-blue-500 hover:underline">Categories</a></li>
+                    <li><a href="/" class="text-blue-500 hover:underline">Boeken</a></li>
+                    <li><a href="/categories" class="text-blue-500 hover:underline">Categorieen</a></li>
                     <li><a href="/filemanager" class="text-blue-500 hover:underline">Filemanager</a></li>
-                    <li><a href="/stats" class="text-blue-500 hover:underline">Statistics</a></li>
+                    <li><a href="/stats" class="text-blue-500 hover:underline">Statistieken</a></li>
                 </ul>
             </nav>
         </div>

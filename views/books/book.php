@@ -4,7 +4,7 @@
     </div>
     <div class="p-4 border-b border-gray-200 flex items-start justify-between">
         <div>
-            <img src="/images/<?= $item->image_path;?>" alt="Cover of book" class="w-16 h-16 mr-4"> 
+            <img src="/images/<?= $item->image_path;?>" alt="Cover Van het boek" class="w-16 h-16 mr-4"> 
         </div>
 
         <div class="flex flex-col flex-1 ml-4">
