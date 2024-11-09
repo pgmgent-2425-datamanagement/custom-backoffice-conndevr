@@ -46,7 +46,7 @@ class Book extends BaseModel
             ':author' => $this->author,
             ':publication_date' => $this->publication_date,
             ':price' => $this->price,
-            ':image_path' => $this->image_path, // Voeg image_path toe aan de waarden
+            ':image_path' => $this->image_path, 
         ]);
         return $succes;
     }
@@ -105,16 +105,14 @@ class Book extends BaseModel
 
     public function getBooksPerCategory()
     {
-        // Haal categorieën en het aantal boeken per categorie op
         $sql = 'SELECT categories.id, categories.name AS category_name, COUNT(books.id) AS book_count 
                 FROM categories 
                 LEFT JOIN books ON categories.id = books.category_id 
-                GROUP BY categories.id'; // Groeperen op categorie ID
+                GROUP BY categories.id'; 
     
         $stmt = $this->db->prepare($sql);
         $stmt->execute();
     
-        // Haal de resultaten op als objecten
         $categories = $stmt->fetchAll(PDO::FETCH_OBJ);
     
         return $categories;

@@ -1,10 +1,10 @@
 <div class="card max-w-full mx-auto bg-white shadow-md rounded-lg overflow-hidden">
     <div class="p-4 border-b border-gray-200">
-        <h3 class="text-lg font-semibold text-gray-800"><?= $item->title ?></h3> <!-- Titel -->
+        <h3 class="text-lg font-semibold text-gray-800"><?= $item->title ?></h3> 
     </div>
     <div class="p-4 border-b border-gray-200 flex items-start justify-between">
         <div>
-            <img src="/images/<?= $item->image_path;?>" alt="Cover of book" class="w-16 h-16 mr-4"> <!-- Pas de breedte/hoogte van de afbeelding aan voor consistentie -->
+            <img src="/images/<?= $item->image_path;?>" alt="Cover of book" class="w-16 h-16 mr-4"> 
         </div>
 
         <div class="flex flex-col flex-1 ml-4">

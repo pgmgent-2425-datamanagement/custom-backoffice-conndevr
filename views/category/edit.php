@@ -1,4 +1,4 @@
-<h1 class="text-2xl font-bold text-center mb-6">Edit Book</h1>
+<h1 class="text-2xl font-bold text-center mb-6">Edit Category</h1>
 <form action="/category/update/<?= $category->id ?>" method="post" class="max-w-lg mx-auto bg-white shadow-md rounded-lg p-6">
     <div class="mb-4">
         <label for="name" class="block text-sm font-semibold text-gray-700">Name</label>

@@ -4,7 +4,7 @@
         <input type="submit" value="Zoeken" class="bg-blue-500 text-white rounded-r-md p-2 hover:bg-blue-600 focus:outline-none focus:ring focus:ring-blue-300">
     </form>
     
-    <a href="/categories/add" class="text-blue-500 hover:underline">Add a book</a>
+    <a href="/categories/add" class="text-blue-500 hover:underline">Add a category</a>
 </div>
 
 <ul>

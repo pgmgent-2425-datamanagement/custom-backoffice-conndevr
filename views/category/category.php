@@ -1,7 +1,7 @@
 <?php ?>
 <div class="card max-w-full mx-auto bg-white shadow-md rounded-lg overflow-hidden">
     <div class="p-4 border-b border-gray-200">
-        <h3 class="text-lg font-semibold text-gray-800"><?= $item->name ?></h3> <!-- Titel -->
+        <h3 class="text-lg font-semibold text-gray-800"><?= $item->name ?></h3> 
     </div>
     <div class="p-4 border-b border-gray-200 flex items-center justify-between">
        

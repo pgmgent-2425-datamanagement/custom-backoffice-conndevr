@@ -164,12 +164,11 @@ class BooksController extends BaseController
         
         $categories = $bookInstance->getBooksPerCategory();
         
-        $books = Book::all(); // Zorg ervoor dat deze methode alle boeken ophaalt.
+        $books = Book::all(); 
         
-        // Laad de view met de categorieën en het aantal boeken
         self::loadView('books/stats', [
             'categories' => $categories,
-            'books' => $books // Voeg de boeken hier toe
+            'books' => $books 
         ]);
     }
     

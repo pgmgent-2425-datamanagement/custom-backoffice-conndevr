@@ -8,10 +8,9 @@ class CategoryController extends BaseController {
     public static function index() {
 
         $search = $_GET['search'] ?? '';
-        // Zorg ervoor dat viewPath correct is ingesteld
+
         $categories = Category::search($search);
 
-        // Laad de view voor klanten
         self::loadView('/category/categoryPage', [
             'title' => 'Category Page',
             'categories' => $categories,
@@ -55,14 +54,13 @@ class CategoryController extends BaseController {
     }
 
     public static function update($id) {
-        $category = Category::find($id);  // Zorg ervoor dat deze methode een array retourneert
+        $category = Category::find($id);
       
         if (!$category) {
             echo "category niet gevonden";
             return;
         }
     
-        // Werk de waarden bij in de array
         $category->name = $_POST['name'];
     
     

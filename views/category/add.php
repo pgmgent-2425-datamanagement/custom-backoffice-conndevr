@@ -1,5 +1,5 @@
 <form method="POST" class="max-w-lg mx-auto bg-white shadow-md rounded-lg p-6">
-    <h1 class="text-2xl font-bold text-center mb-6">Book Information</h1>
+    <h1 class="text-2xl font-bold text-center mb-6">Category Information</h1>
 
     <div class="mb-4">
         <label for="name" class="block text-sm font-semibold text-gray-700">Name</label>
